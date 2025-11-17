@@ -1008,7 +1008,7 @@
                         <span class="date">Apr 2024 - <span data-translate="present">Present</span></span>
                         <h3 data-translate="job1_title">Quality Control Laboratory Technician</h3>
                         <h4>MCA - Angola</h4>
-                        <p data-translate="job1_desc">I perform quality control in large photovoltaic projects, ensuring the reliability of tests according to quality standards (NP/ASTM/UNEC).</p>
+                        <p data-translate="job1_desc">I perform quality control in large photovoltaic projects, ensuring the reliability of tests according to quality standards (NP/ASTM/TMH).</p>
                         <p><strong data-translate="competences">Competencies:</strong> <span data-translate="job1_skills">Test Leadership, Advanced Excel (Macros, Dynamic Spreadsheets), Quality Control in Solar Energy Projects</span>.</p>
                     </div>
                 </div>
