@@ -665,7 +665,9 @@
         section#certifications.is-visible .certificate-card:nth-child(4) { animation-delay: 0.25s; }
         section#certifications.is-visible .certificate-card:nth-child(5) { animation-delay: 0.3s; }
         section#certifications.is-visible .certificate-card:nth-child(6) { animation-delay: 0.35s; }
-        /* Adicione mais seções :nth-child se tiver mais de 6 certificados */
+        section#certifications.is-visible .certificate-card:nth-child(7) { animation-delay: 0.4s; }
+        section#certifications.is-visible .certificate-card:nth-child(8) { animation-delay: 0.45s; }
+        /* Adicione mais seções :nth-child se tiver mais de 8 certificados */
 
         .certificate-header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -1268,6 +1270,44 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- NOVO CERTIFICADO: Segurança do Trabalho -->
+                <div class="certificate-card">
+                    <div class="certificate-header">
+                        <h3 data-translate="safety_certificate_title">Work Safety: Environmental Risks and Accident Prevention</h3>
+                    </div>
+                    <div class="certificate-body">
+                        <h4>Federal Institute of Education, Science and Technology of Rio Grande do Sul</h4>
+                        <div class="certificate-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>7 - 22 Dec 2025 (30 hours)</span>
+                        </div>
+                        <p data-translate="safety_certificate_desc">Course on work safety, environmental risks and accident prevention, with 83.61% achievement.</p>
+                        <div class="competencies">
+                            <h5 data-translate="competences">Competencies:</h5>
+                            <p data-translate="safety_certificate_skills">Legislation, Environmental risks, Accident prevention.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NOVO CERTIFICADO: Controle Tecnológico Aplicado à Usinas de Concreto -->
+                <div class="certificate-card">
+                    <div class="certificate-header">
+                        <h3 data-translate="concrete_control_certificate_title">Introduction to Technological Control Applied to Concrete Plants</h3>
+                    </div>
+                    <div class="certificate-body">
+                        <h4>Federal Institute of Education, Science and Technology of São Paulo</h4>
+                        <div class="certificate-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>7 - 22 Dec 2025 (20 hours)</span>
+                        </div>
+                        <p data-translate="concrete_control_certificate_desc">Course on basic concepts of ready-mixed concrete, production and fundamentals of technological control, with 81.50% achievement.</p>
+                        <div class="competencies">
+                            <h5 data-translate="competences">Competencies:</h5>
+                            <p data-translate="concrete_control_certificate_skills">Basic concepts about ready-mixed concrete, Production of ready-mixed concrete, Fundamentals of technological control.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1416,6 +1456,13 @@
                 issued_dez: "Emitido em dez de 2024",
                 geotechnical_description_desc: "Curso sobre a descrição e classificação de testemunhos de sondagem para fins geotécnicos.",
                 geotechnical_description_skills: "Classificação de solos, interpretação de sondagens, documentação geotécnica, relatórios técnicos.",
+                // Novos certificados
+                safety_certificate_title: "Segurança do Trabalho: Riscos Ambientais e Prevenção de Acidentes",
+                safety_certificate_desc: "Curso sobre segurança do trabalho, riscos ambientais e prevenção de acidentes, com aproveitamento de 83,61%.",
+                safety_certificate_skills: "Legislações, Riscos ambientais, Prevenção de acidentes.",
+                concrete_control_certificate_title: "Introdução ao Controle Tecnológico Aplicado à Usinas de Concreto",
+                concrete_control_certificate_desc: "Curso sobre conceitos básicos de concreto usinado, produção e fundamentos do controle tecnológico, com aproveitamento de 81,50%.",
+                concrete_control_certificate_skills: "Conceitos básicos sobre concreto usinado, Produção do concreto usinado, Fundamentos do controle tecnológico.",
                 // Rodapé
                 contact_title: "Entre em Contato",
                 quick_links_title: "Links Rápidos",
@@ -1506,6 +1553,13 @@
                 issued_dez: "Issued Dec 2024",
                 geotechnical_description_desc: "Course on the description and classification of borehole samples for geotechnical purposes.",
                 geotechnical_description_skills: "Soil classification, borehole interpretation, geotechnical documentation, technical reports.",
+                // Novos certificados
+                safety_certificate_title: "Work Safety: Environmental Risks and Accident Prevention",
+                safety_certificate_desc: "Course on work safety, environmental risks and accident prevention, with 83.61% achievement.",
+                safety_certificate_skills: "Legislation, Environmental risks, Accident prevention.",
+                concrete_control_certificate_title: "Introduction to Technological Control Applied to Concrete Plants",
+                concrete_control_certificate_desc: "Course on basic concepts of ready-mixed concrete, production and fundamentals of technological control, with 81.50% achievement.",
+                concrete_control_certificate_skills: "Basic concepts about ready-mixed concrete, Production of ready-mixed concrete, Fundamentals of technological control.",
                 // Footer
                 contact_title: "Contact Me",
                 quick_links_title: "Quick Links",
@@ -1577,25 +1631,32 @@
                 metrology_skills: "Précision des mesures, étalonnage des équipements, normas de metrologia aplicadas.",
                 soil_mechanics: "Mécanique des Sols",
                 issued_jul: "Délivré en julho de 2024",
-                soil_mechanics_desc: "Formação avançada em mecânica dos solos e suas aplicações em engenharia geotécnica, axada na execução de ensaios em laboratório e sistemas de qualidade.",
+                soil_mechanics_desc: "Formação avançada em mecânica dos solos e suas aplicações em engenharia geotécnica, axada na execução de ensaios em laboratório e sistemas de qualité.",
                 soil_mechanics_skills: "Exécution d'essais em laboratório, sistema qualidade, compétences analytiques, controle qualidade, ingénierie, construction.",
                 asphalt_mixes: "Mélanges Asphalte",
                 asphalt_title: "Conception, Matériaux et Dosage",
                 issued_aug: "Délivré en agosto de 2024",
                 asphalt_desc: "Spécialisation en mélanges d'asphalte, abordando la conception, les matériaux et les méthodes de dosage.",
-                asphalt_skills: "Système de qualidade, análise de materiais bituminosos, dosagem de mélanges asphaltiques.",
+                asphalt_skills: "Système de qualidade, analyse de materiais bituminosos, dosagem de mélanges asphaltiques.",
                 pathologies_title: "Patologias des Estruturas",
                 concrete_pathologies: "Concepts essentiels sur les Pathologies des Structures en Béton",
-                pathologies_desc: "Formação especializada em identificação e análise de patologias em estruturas de concreto.",
+                pathologies_desc: "Formação spécializada em identificação e análise de patologias em estruturas de concreto.",
                 pathologies_skills: "Sistema de qualidade, diagnóstico de patologias, prevenção de falhas em estruturas.",
                 construction_material: "Matériaux de Construction",
                 issued_jun: "Délivré en junho de 2024",
-                construction_material_desc: "Cours axé sur la conceptualização, les propriedades et les aplicações dos materiais de construção essenciais para o génie civil.",
-                construction_material_skills: "Análise dos materiais, normas de construção, controle de qualidade em obras, ensaios de materiais.",
+                construction_material_desc: "Cours axé sur la conceptualisation, les propriétés et les applications des matériaux de construction essentiels pour le génie civil.",
+                construction_material_skills: "Analyse des matériaux, normes de construction, contrôle de qualité en travaux, essais de matériaux.",
                 geotechnical_description: "Description géotechnique des témoins de sondage",
                 issued_dez: "Délivré en déc. 2024",
                 geotechnical_description_desc: "Cours sur la description et la classification des échantillons de sondage à des fins géotechniques.",
-                geotechnical_description_skills: "Classificação des sols, interprétation des sondages, documentação geotécnica, relatórios técnicos.",
+                geotechnical_description_skills: "Classification des sols, interprétation des sondages, documentation géotechnique, rapports techniques.",
+                // Novos certificados
+                safety_certificate_title: "Sécurité du Travail: Risques Environnementaux et Prévention des Accidents",
+                safety_certificate_desc: "Cours sur la sécurité du travail, les risques environnementaux et la prévention des accidents, avec un taux de réussite de 83,61%.",
+                safety_certificate_skills: "Législation, Risques environnementaux, Prévention des accidents.",
+                concrete_control_certificate_title: "Introduction au Contrôle Technologique Appliqué aux Usines de Béton",
+                concrete_control_certificate_desc: "Cours sur les concepts de base du béton prêt à l'emploi, la production et les fondamentaux du contrôle technologique, avec un taux de réussite de 81,50%.",
+                concrete_control_certificate_skills: "Concepts de base sur le béton prêt à l'emploi, Production du béton prêt à l'emploi, Fondamentaux du contrôle technologique.",
                 // Rodapé
                 contact_title: "Contactez-moi",
                 quick_links_title: "Liens Rapides",
