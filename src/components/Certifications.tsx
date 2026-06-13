@@ -147,12 +147,25 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
             <motion.div
               key={cert.id}
               variants={cardVariants}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 flex flex-col border border-black/5"
+              className="relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 flex flex-col border border-black/5"
             >
-              <div className="bg-gradient-to-r from-primary to-secondary p-5 font-semibold">
+              {/* Imagem de certificado desfocada no fundo */}
+              {cert.imageUrl && (
+                <img 
+                  src={cert.imageUrl}
+                  alt=""
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full opacity-[0.08] blur-[8px] pointer-events-none select-none z-0 object-cover"
+                />
+              )}
+
+              {/* Overlay suave para legibilidade e efeito glassmorphism */}
+              <div className="absolute inset-0 bg-white/90 backdrop-blur-[1px] z-0 pointer-events-none" />
+
+              <div className="bg-gradient-to-r from-primary to-secondary p-5 font-semibold relative z-10">
                 <h3 className="!text-white text-lg md:text-xl font-bold">{t(cert.titleKey)}</h3>
               </div>
-              <div className="p-6 md:p-8 flex flex-col flex-grow">
+              <div className="p-6 md:p-8 flex flex-col flex-grow relative z-10">
                 {cert.institution && (
                   <h4 className="text-secondary font-semibold text-base md:text-lg mb-3">
                     {cert.institution}
@@ -203,12 +216,12 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md cursor-zoom-out"
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md cursor-zoom-out"
           >
             {/* Botão de fechar */}
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-6 right-6 text-white hover:text-accent text-3xl focus:outline-none transition-colors cursor-pointer z-50 p-2"
+              className="absolute top-6 right-6 bg-black/50 hover:bg-accent hover:scale-105 border border-white/10 w-12 h-12 rounded-full flex items-center justify-center text-white text-xl focus:outline-none transition-all duration-200 cursor-pointer z-[10000] shadow-lg"
               aria-label="Fechar"
             >
               <i className="fas fa-times"></i>

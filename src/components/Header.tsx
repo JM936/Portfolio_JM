@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import type { Language } from '../data/translations';
+import { getDecodedEmail, getDecodedPhone } from '../utils/obfuscation';
 
 interface HeaderProps {
   currentLanguage: Language;
@@ -37,13 +38,13 @@ export const Header: React.FC<HeaderProps> = ({ currentLanguage }) => {
           </div>
           <div className="flex items-center gap-2 text-[1.1rem] bg-white/15 py-2 px-5 rounded-[30px] backdrop-blur-[5px] shadow-[0_2px_8px_rgba(0,0,0,0.1)] transition-all duration-300 hover:bg-white/30 hover:-translate-y-1 hover:scale-[1.02]">
             <i className="fas fa-envelope text-white"></i>
-            <a href="mailto:juliomalo811@outlook.com" className="text-white no-underline">
-              juliomalo811@outlook.com
+            <a href={`mailto:${getDecodedEmail()}`} className="text-white no-underline">
+              {getDecodedEmail()}
             </a>
           </div>
           <div className="flex items-center gap-2 text-[1.1rem] bg-white/15 py-2 px-5 rounded-[30px] backdrop-blur-[5px] shadow-[0_2px_8px_rgba(0,0,0,0.1)] transition-all duration-300 hover:bg-white/30 hover:-translate-y-1 hover:scale-[1.02]">
             <i className="fas fa-phone text-white"></i>
-            <span>+244 936 918 172</span>
+            <span>{getDecodedPhone()}</span>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import type { Language } from '../data/translations';
+import { getDecodedEmail, getDecodedPhone, getDecodedWhatsApp } from '../utils/obfuscation';
 
 interface FooterProps {
   currentLanguage: Language;
@@ -36,12 +37,12 @@ export const Footer: React.FC<FooterProps> = ({ currentLanguage }) => {
               </li>
               <li className="flex items-center gap-3 text-base">
                 <i className="fas fa-phone text-lg w-5 text-center text-primary" />
-                <span>+244 936 918 172</span>
+                <span>{getDecodedPhone()}</span>
               </li>
               <li className="flex items-center gap-3 text-base">
                 <i className="fas fa-envelope text-lg w-5 text-center text-primary" />
-                <a href="mailto:juliomalo811@outlook.com" className="text-white hover:text-primary transition-colors duration-300">
-                  juliomalo811@outlook.com
+                <a href={`mailto:${getDecodedEmail()}`} className="text-white hover:text-primary transition-colors duration-300">
+                  {getDecodedEmail()}
                 </a>
               </li>
             </ul>
@@ -57,7 +58,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLanguage }) => {
                 <i className="fab fa-linkedin-in" />
               </a>
               <a
-                href="https://wa.me/244936918172"
+                href={getDecodedWhatsApp()}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
