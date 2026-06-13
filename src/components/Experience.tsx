@@ -124,16 +124,16 @@ export const Experience: React.FC<ExperienceProps> = ({ currentLanguage }) => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: '-100px' }}
                     transition={{ duration: 0.6 }}
-                    className={`w-full mt-4 md:mt-0 ${
+                    className={`w-full mt-4 md:mt-0 flex items-center justify-center ${
                       isEven ? 'order-2' : 'md:order-1'
                     }`}
                   >
-                    <div className="rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-black/5 w-full aspect-[3/4] max-h-[450px] bg-white">
+                    <div className="w-full max-h-[400px] flex items-center justify-center overflow-hidden">
                       <img
                         src={exp.image}
                         alt={exp.alt}
                         loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        className="max-w-full max-h-[400px] w-auto h-auto object-contain rounded-2xl shadow-md border border-black/5 transition-transform duration-500 hover:scale-105"
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = exp.fallbackImage;
                         }}
