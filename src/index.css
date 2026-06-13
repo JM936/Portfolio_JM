@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #0056b3;
+    --secondary: #2c3e50;
+    --accent: #e74c3c;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --gray: #6c757d;
+  }
+
+  body {
+    background-color: var(--light);
+    color: var(--dark);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+    padding-top: 80px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--secondary);
+  }
+}
+
+/* Custom scroll smooth behavior */
+html {
+  scroll-behavior: smooth;
+}
