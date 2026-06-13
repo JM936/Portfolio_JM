@@ -128,12 +128,12 @@ export const Experience: React.FC<ExperienceProps> = ({ currentLanguage }) => {
                       isEven ? 'order-2' : 'md:order-1'
                     }`}
                   >
-                    <div className="rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-black/5 w-full">
+                    <div className="rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-black/5 w-full aspect-[3/4] max-h-[450px] bg-white">
                       <img
                         src={exp.image}
                         alt={exp.alt}
                         loading="lazy"
-                        className="w-full h-auto object-contain transition-transform duration-500 hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = exp.fallbackImage;
                         }}
