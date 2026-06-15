@@ -155,12 +155,12 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
                   src={cert.imageUrl}
                   alt=""
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full opacity-[0.08] blur-[8px] pointer-events-none select-none z-0 object-cover"
+                  className="absolute inset-0 w-full h-full opacity-[0.18] blur-[3px] pointer-events-none select-none z-0 object-cover"
                 />
               )}
 
               {/* Overlay suave para legibilidade e efeito glassmorphism */}
-              <div className="absolute inset-0 bg-white/90 backdrop-blur-[1px] z-0 pointer-events-none" />
+              <div className="absolute inset-0 bg-white/80 backdrop-blur-[0.5px] z-0 pointer-events-none" />
 
               <div className="bg-gradient-to-r from-primary to-secondary p-5 font-semibold relative z-10">
                 <h3 className="!text-white text-lg md:text-xl font-bold">{t(cert.titleKey)}</h3>
