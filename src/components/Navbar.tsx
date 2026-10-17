@@ -9,6 +9,7 @@ interface NavbarProps {
 const navItems = [
   { id: 'about', labelKey: 'menu_about' as const },
   { id: 'experience', labelKey: 'menu_experience' as const },
+  { id: 'projects', labelKey: 'menu_projects' as const },
   { id: 'skills', labelKey: 'menu_skills' as const },
   { id: 'certifications', labelKey: 'menu_certifications' as const },
   { id: 'contact', labelKey: 'menu_contact' as const },

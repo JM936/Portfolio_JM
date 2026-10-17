@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Navbar from './components/Navbar'
 import About from './components/About'
 import Experience from './components/Experience'
+import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Certifications from './components/Certifications'
 import Footer from './components/Footer'
@@ -27,6 +28,7 @@ function App() {
       <main className="flex-grow">
         <About currentLanguage={language} />
         <Experience currentLanguage={language} />
+        <Projects currentLanguage={language} />
         <Skills currentLanguage={language} />
         <Certifications currentLanguage={language} />
       </main>
