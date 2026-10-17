@@ -3,7 +3,6 @@ export const translations = {
   pt: {
     // Cabeçalho
     job_title: "Técnico de Laboratório Geotécnico & QA/QC | Ensaios de Solos, Agregados, Betão e Asfalto | ASTM • AASHTO • NP EN • LNEC • ABNT NBR",
-    download_cv: "Baixar CV (PDF)",
     // Menu
     menu_about: "Sobre",
     menu_experience: "Experiência",
@@ -139,7 +138,6 @@ export const translations = {
   en: {
     // Header
     job_title: "Geotechnical Laboratory & QA/QC Technician | Soil, Aggregate, Concrete & Asphalt Testing | ASTM • AASHTO • NP EN • LNEC • ABNT NBR",
-    download_cv: "Download CV (PDF)",
     // Menu
     menu_about: "About",
     menu_experience: "Experience",
@@ -275,7 +273,6 @@ export const translations = {
   fr: {
     // Header
     job_title: "Technicien de Laboratoire Géotechnique & QA/QC | Essais de Sols, Granulats, Béton et Asphalte | ASTM • AASHTO • NP EN • LNEC • ABNT NBR",
-    download_cv: "Télécharger le CV (PDF)",
     // Menu
     menu_about: "À Propos",
     menu_experience: "Expérience",

@@ -47,18 +47,6 @@ export const Header: React.FC<HeaderProps> = ({ currentLanguage }) => {
             <span>{getDecodedPhone()}</span>
           </div>
         </div>
-
-        {/* Botão de Download de CV em PDF */}
-        <div className="mt-8 flex justify-center">
-          <a
-            href="/cv-julio-malo.pdf"
-            download="CV-Julio-Malo.pdf"
-            className="inline-flex items-center gap-3 bg-white text-primary hover:bg-accent hover:text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl text-base md:text-lg no-underline"
-          >
-            <i className="fas fa-file-pdf text-xl"></i>
-            <span>{t('download_cv')}</span>
-          </a>
-        </div>
       </div>
     </header>
   );
