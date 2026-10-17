@@ -19,8 +19,8 @@ export const Experience: React.FC<ExperienceProps> = ({ currentLanguage }) => {
       company: "MCA - Angola",
       descKey: "job1_desc" as const,
       skillsKey: "job1_skills" as const,
-      image: "/Imagens/MCa.jpg",
-      fallbackImage: "https://raw.githubusercontent.com/JM936/juliolab/main/Imagens/MCa.jpg",
+      image: "/Imagens/MCa.webp",
+      fallbackImage: "/Imagens/MCa.jpg",
       alt: "Image of Quality Control Laboratory Technician at MCA"
     },
     {
@@ -31,8 +31,8 @@ export const Experience: React.FC<ExperienceProps> = ({ currentLanguage }) => {
       company: "Mota-Engil Angola - Luanda, Angola",
       descKey: "job2_desc" as const,
       skillsKey: "job2_skills" as const,
-      image: "/Imagens/Mota.jpg",
-      fallbackImage: "https://raw.githubusercontent.com/JM936/juliolab/main/Imagens/Mota.jpg",
+      image: "/Imagens/Mota.webp",
+      fallbackImage: "/Imagens/Mota.jpg",
       alt: "Image of Geotechnical Laboratory Technician at Mota-Engil"
     },
     {
@@ -43,8 +43,8 @@ export const Experience: React.FC<ExperienceProps> = ({ currentLanguage }) => {
       company: "Omatapalo - Angola",
       descKey: "job3_desc" as const,
       skillsKey: "job3_skills" as const,
-      image: "/Imagens/Omata.jpg",
-      fallbackImage: "https://raw.githubusercontent.com/JM936/juliolab/main/Imagens/Omata.jpg",
+      image: "/Imagens/Omata.webp",
+      fallbackImage: "/Imagens/Omata.jpg",
       alt: "Image of Laboratory Technician at Omatapalo"
     },
     {
@@ -55,8 +55,8 @@ export const Experience: React.FC<ExperienceProps> = ({ currentLanguage }) => {
       company: "Odebrecht - Angola",
       descKey: "job4_desc" as const,
       skillsKey: "job4_skills" as const,
-      image: "/Imagens/Ode.jpg",
-      fallbackImage: "https://raw.githubusercontent.com/JM936/juliolab/main/Imagens/Ode.jpg",
+      image: "/Imagens/Ode.webp",
+      fallbackImage: "/Imagens/Ode.jpg",
       alt: "Image of Laboratory Technician at Odebrecht"
     }
   ];

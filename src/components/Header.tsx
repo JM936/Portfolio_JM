@@ -15,12 +15,12 @@ export const Header: React.FC<HeaderProps> = ({ currentLanguage }) => {
       <div className="max-w-[1200px] mx-auto relative z-10 text-center pt-8">
         <div className="w-[180px] h-[180px] rounded-full border-[5px] border-white/30 mx-auto mb-5 bg-white overflow-hidden shadow-md transition-all duration-300 hover:scale-105 hover:rotate-2 hover:shadow-lg">
           <img
-            src="/Imagens/Profile.jpg"
+            src="/Imagens/Profile.webp"
             alt="Profile picture of Júlio Maló"
             loading="lazy"
             className="w-full h-full object-cover"
             onError={(e) => {
-              (e.target as HTMLImageElement).src = 'https://raw.githubusercontent.com/JM936/juliolab/main/Imagens/Profile.jpg';
+              (e.target as HTMLImageElement).src = '/Imagens/Profile.jpg';
             }}
           />
         </div>
