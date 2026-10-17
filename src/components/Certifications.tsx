@@ -11,6 +11,19 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
   const { t } = useTranslation(currentLanguage);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
+  // Fecha o modal ao pressionar a tecla Escape (Acessibilidade WCAG)
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedImage(null);
+      }
+    };
+    if (selectedImage) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage]);
+
   const certificates = [
     {
       id: 1,
@@ -122,18 +135,23 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
   };
 
   return (
-    <section id="certifications" className="py-20 px-4 bg-[#f0f4f8]">
+    <section id="certifications" className="py-20 px-4 bg-slate-50/60 border-t border-slate-200/60">
       <div className="max-w-[1200px] mx-auto">
+        {/* Cabeçalho da Seção com Padrão UI/UX Pro Max */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 relative bg-gradient-to-r from-blue-500 via-primary to-secondary text-white py-10 px-5 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-[0_2px_5px_rgba(0,0,0,0.4)] relative z-10 inline-block pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-[100px] after:h-[5px] after:bg-accent after:rounded-full after:transition-all after:duration-400">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-primary/10 text-primary font-bold text-xs uppercase tracking-wider mb-3">
+            Qualificações & Formação
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
             {t('certifications_title')}
           </h2>
+          <div className="w-16 h-1 bg-primary rounded-full mx-auto mt-4" />
         </motion.div>
 
         <motion.div
@@ -147,7 +165,7 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
             <motion.div
               key={cert.id}
               variants={cardVariants}
-              className="relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 flex flex-col border border-black/5"
+              className="relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col border border-slate-200/80"
             >
               {/* Imagem de certificado desfocada no fundo */}
               {cert.imageUrl && (

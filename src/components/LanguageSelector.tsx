@@ -10,28 +10,42 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   currentLanguage,
   onLanguageChange,
 }) => {
-  const languages: { code: Language; label: string }[] = [
-    { code: 'pt', label: 'PT' },
-    { code: 'en', label: 'EN' },
-    { code: 'fr', label: 'FR' },
+  const languages: { code: Language; label: string; title: string }[] = [
+    { code: 'pt', label: 'PT', title: 'Português' },
+    { code: 'en', label: 'EN', title: 'English' },
+    { code: 'fr', label: 'FR', title: 'Français' },
   ];
 
   return (
-    <div className="fixed top-5 right-5 z-[1000] flex gap-2 bg-white rounded-[50px] shadow-md p-1">
-      {languages.map((lang) => (
-        <button
-          key={lang.code}
-          onClick={() => onLanguageChange(lang.code)}
-          className={`w-10 h-10 md:w-[48px] md:h-[48px] rounded-full flex items-center justify-center font-semibold cursor-pointer border-none text-sm transition-all duration-300 ${
-            currentLanguage === lang.code
-              ? 'bg-primary text-white shadow-sm scale-105'
-              : 'bg-transparent text-grayCustom hover:bg-primary/10 hover:text-primary hover:-translate-y-0.5'
-          }`}
-        >
-          {lang.label}
-        </button>
-      ))}
-    </div>
+    <aside 
+      aria-label="Language selector"
+      className="fixed top-4 right-4 z-50 flex items-center gap-1 bg-white/85 backdrop-blur-md border border-slate-200/80 rounded-full shadow-lg p-1.5 transition-all duration-300 hover:shadow-xl"
+    >
+      <div className="pl-2 pr-1 text-slate-400 text-xs hidden sm:block">
+        <i className="fas fa-globe" />
+      </div>
+      {languages.map((lang) => {
+        const isCurrent = currentLanguage === lang.code;
+        return (
+          <button
+            key={lang.code}
+            type="button"
+            onClick={() => onLanguageChange(lang.code)}
+            title={lang.title}
+            aria-label={`Mudar idioma para ${lang.title}`}
+            aria-pressed={isCurrent}
+            className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm cursor-pointer border-none transition-all duration-200 ${
+              isCurrent
+                ? 'bg-primary text-white shadow-sm scale-105'
+                : 'bg-transparent text-slate-600 hover:text-primary hover:bg-primary/10'
+            }`}
+          >
+            {lang.label}
+          </button>
+        );
+      })}
+    </aside>
   );
 };
+
 export default LanguageSelector;

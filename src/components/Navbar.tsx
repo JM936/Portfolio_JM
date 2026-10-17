@@ -19,10 +19,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLanguage }) => {
   const { t } = useTranslation(currentLanguage);
   const [activeSection, setActiveSection] = useState<string>('about');
 
-
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 120; // Offset ajustado para cabeçalho fixo/sticky
+      const scrollPosition = window.scrollY + 140;
 
       for (const item of navItems) {
         const el = document.getElementById(item.id);
@@ -36,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLanguage }) => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -44,31 +43,34 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLanguage }) => {
     e.preventDefault();
     const el = document.getElementById(id);
     if (el) {
-      const yOffset = -70; // Desconto para a navbar fixa
+      const yOffset = -80;
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-[100] rounded-b-2xl">
-      <div className="max-w-[1200px] mx-auto px-5 flex justify-center">
-        <ul className="flex list-none flex-wrap justify-center m-0 p-0">
-          {navItems.map((item) => (
-            <li key={item.id} className="py-4 px-4 md:py-5 md:px-6">
-              <a
-                href={`#${item.id}`}
-                onClick={(e) => handleClick(e, item.id)}
-                className={`text-dark no-underline font-semibold text-base md:text-lg relative pb-1 transition-colors duration-300 after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:h-[3px] after:bg-primary after:transition-all after:duration-300 ${
-                  activeSection === item.id
-                    ? 'text-primary after:w-full'
-                    : 'hover:text-primary after:w-0 hover:after:w-full'
-                }`}
-              >
-                {t(item.labelKey)}
-              </a>
-            </li>
-          ))}
+    <nav className="sticky top-0 z-40 backdrop-blur-md bg-white/90 border-b border-slate-200/70 shadow-sm transition-all duration-300">
+      <div className="max-w-[1200px] mx-auto px-4 flex justify-center">
+        <ul className="flex list-none flex-wrap justify-center items-center gap-1 sm:gap-2 m-0 py-2.5 px-0">
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  onClick={(e) => handleClick(e, item.id)}
+                  className={`inline-flex items-center justify-center min-h-[42px] px-3.5 sm:px-4 py-2 rounded-full font-semibold text-sm transition-all duration-200 no-underline cursor-pointer ${
+                    isActive
+                      ? 'bg-primary text-white shadow-sm'
+                      : 'text-slate-600 hover:text-primary hover:bg-primary/5'
+                  }`}
+                >
+                  {t(item.labelKey)}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </nav>

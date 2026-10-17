@@ -10,50 +10,97 @@ interface AboutProps {
 export const About: React.FC<AboutProps> = ({ currentLanguage }) => {
   const { t } = useTranslation(currentLanguage);
 
+  const highlights = [
+    {
+      icon: 'fas fa-clipboard-check',
+      title: 'QA/QC Rigoroso',
+      desc: 'Prevenção de não conformidades com rastreabilidade total'
+    },
+    {
+      icon: 'fas fa-award',
+      title: 'Normas Internacionais',
+      desc: 'ASTM, AASHTO, NP EN, LNEC e ABNT NBR'
+    },
+    {
+      icon: 'fas fa-chart-line',
+      title: 'Análise de Dados',
+      desc: 'Excel Avançado, ensaios laboratoriais e Go-Lab'
+    }
+  ];
+
   return (
     <section id="about" className="py-20 px-4">
       <div className="max-w-[1200px] mx-auto">
+        {/* Título de Seção Moderno com Padrão UI/UX Pro Max */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12 relative bg-gradient-to-r from-blue-500 via-primary to-secondary text-white py-10 px-5 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-14"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-[0_2px_5px_rgba(0,0,0,0.4)] relative z-10 inline-block pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-[100px] after:h-[5px] after:bg-accent after:rounded-full after:transition-all after:duration-400">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-primary/10 text-primary font-bold text-xs uppercase tracking-wider mb-3">
+            Perfil Profissional
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
             {t('about_title')}
           </h2>
+          <div className="w-16 h-1 bg-primary rounded-full mx-auto mt-4" />
         </motion.div>
 
+        {/* Card Principal */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8 }}
-          className="bg-white rounded-2xl p-6 md:p-10 shadow-sm relative overflow-hidden border-l-8 border-primary"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6 }}
+          className="bg-white rounded-3xl p-6 sm:p-10 md:p-12 shadow-sm border border-slate-200/80 relative overflow-hidden"
         >
-          <p className="text-base md:text-lg mb-5 leading-relaxed text-dark">
+          {/* Barra decorativa lateral suave */}
+          <div className="absolute top-0 left-0 bottom-0 w-2 bg-gradient-to-b from-primary to-secondary" />
+
+          <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-6 font-normal">
             {t('about_p1')}
           </p>
 
-          <div className="bg-gradient-to-r from-primary/5 to-secondary/5 border-l-4 border-primary p-5 rounded-r-lg my-6 shadow-sm">
-            <p className="text-base md:text-lg leading-relaxed text-dark">
+          {/* Destaque Executivo com Fundo Suave */}
+          <div className="bg-gradient-to-r from-slate-50 via-blue-50/40 to-slate-50 border-l-4 border-primary p-6 rounded-r-2xl my-8 shadow-sm">
+            <p className="text-base sm:text-lg text-slate-800 leading-relaxed font-medium m-0">
               {t('about_p2')}
             </p>
           </div>
 
-          <p className="text-base md:text-lg mb-5 leading-relaxed text-dark">
+          <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-8">
             {t('about_p3')}
           </p>
 
-          <div className="text-center mt-8">
+          {/* Grid de Destaques Rápidos */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10 pt-4 border-t border-slate-100">
+            {highlights.map((item, idx) => (
+              <div 
+                key={idx} 
+                className="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50/80 border border-slate-200/60"
+              >
+                <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-lg flex-shrink-0">
+                  <i className={item.icon} />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900 mb-1">{item.title}</h4>
+                  <p className="text-xs text-slate-600 m-0 leading-snug">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA LinkedIn */}
+          <div className="text-center pt-2">
             <a
               href="https://www.linkedin.com/in/juliomalo-geotecnia"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-primary hover:bg-accent text-white py-3 px-6 rounded-[30px] no-underline font-semibold text-base shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-xl"
+              className="inline-flex items-center gap-2.5 bg-primary hover:bg-[#004494] text-white py-3.5 px-8 rounded-full font-semibold text-base shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl no-underline"
             >
-              <i className="fab fa-linkedin-in mr-2"></i>
+              <i className="fab fa-linkedin-in text-lg" />
               <span>{t('linkedin_cta')}</span>
             </a>
           </div>
