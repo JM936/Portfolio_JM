@@ -50,7 +50,10 @@ export const Projects: React.FC<ProjectsProps> = ({ currentLanguage }) => {
       tagKey: 'project1_tag' as const,
       period: '2026 - Presente',
       icon: 'fas fa-road',
-      gradient: 'from-[#004b99] to-primary',
+      images: [
+        { src: '/Imagens/projetos/camama.webp', alt: 'Ensaio de extração de testemunhos in situ na Estrada Camama/Viana' },
+        { src: '/Imagens/projetos/camama2.webp', alt: 'Compactação de subleito e sub-base na Estrada Camama/Viana' }
+      ],
       bullets: [
         'Controlo de subleito, sub-base e base',
         'Ensaios de compactação in situ (CBR/Proctor)',
@@ -65,7 +68,9 @@ export const Projects: React.FC<ProjectsProps> = ({ currentLanguage }) => {
       tagKey: 'project2_tag' as const,
       period: '2024 - 2025',
       icon: 'fas fa-solar-panel',
-      gradient: 'from-[#0f5b99] to-[#0d7377]',
+      images: [
+        { src: '/Imagens/projetos/solar.webp', alt: 'Vista aérea do parque fotovoltaico de grande escala em Angola' }
+      ],
       bullets: [
         'Validação de aterro para bases solares',
         'Fundações e ensaios geotécnicos de estacas',
@@ -80,7 +85,9 @@ export const Projects: React.FC<ProjectsProps> = ({ currentLanguage }) => {
       tagKey: 'project3_tag' as const,
       period: '2022 - 2024',
       icon: 'fas fa-city',
-      gradient: 'from-secondary to-[#334155]',
+      images: [
+        { src: '/Imagens/projetos/ruas-luanda.webp', alt: 'Armadura e concretagem de drenagem urbana nas Ruas de Luanda' }
+      ],
       bullets: [
         'Controlo de betão estrutural (≥ 35 MPa)',
         'Validação de valas e redes de drenagem urbana',
@@ -95,7 +102,9 @@ export const Projects: React.FC<ProjectsProps> = ({ currentLanguage }) => {
       tagKey: 'project4_tag' as const,
       period: '2019 - 2021',
       icon: 'fas fa-map-marked-alt',
-      gradient: 'from-[#1e3a8a] to-secondary',
+      images: [
+        { src: '/Imagens/Omata.webp', alt: 'Equipamentos e execução de obras na Estrada Nacional N:230' }
+      ],
       bullets: [
         'Extensão de mais de 200 km de infraestrutura rodoviária',
         'Caracterização de materiais de empréstimo e solos',
@@ -151,7 +160,7 @@ export const Projects: React.FC<ProjectsProps> = ({ currentLanguage }) => {
           ))}
         </div>
 
-        {/* Grid de Projetos Reais */}
+        {/* Grid de Projetos Reais com Fotos de Campo */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <motion.div
@@ -162,32 +171,62 @@ export const Projects: React.FC<ProjectsProps> = ({ currentLanguage }) => {
               transition={{ duration: 0.5, delay: index * 0.12 }}
               className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col border border-slate-200/80 group"
             >
-              {/* Header do Card com Gradiente */}
-              <div className={`bg-gradient-to-r ${project.gradient} p-6 sm:p-7 text-white relative`}>
-                <div className="flex justify-between items-start mb-3">
-                  <span className="bg-white/15 backdrop-blur-md text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-white/20">
+              {/* Showcase de Imagem Real com Overlay de Gradiente */}
+              <div className="relative h-60 sm:h-64 w-full overflow-hidden bg-slate-900">
+                {project.images.length > 1 ? (
+                  /* Grid Duplo para projetos com 2 fotos (ex: Camama/Viana) */
+                  <div className="grid grid-cols-2 h-full w-full">
+                    {project.images.map((img, imgIdx) => (
+                      <div key={imgIdx} className="relative h-full w-full overflow-hidden border-r border-black/20 last:border-none">
+                        <img
+                          src={img.src}
+                          alt={img.alt}
+                          loading="lazy"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  /* Foto única panorâmica */
+                  <img
+                    src={project.images[0].src}
+                    alt={project.images[0].alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                )}
+
+                {/* Overlay de gradiente escuro na base para legibilidade perfeita */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent pointer-events-none" />
+
+                {/* Badges no Topo */}
+                <div className="absolute top-4 left-4 right-4 flex justify-between items-start pointer-events-none z-10">
+                  <span className="bg-black/50 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-white/20">
                     {t(project.tagKey)}
                   </span>
-                  <span className="text-xs font-semibold text-white/90 bg-black/25 backdrop-blur-sm px-3 py-1 rounded-full">
+                  <span className="text-xs font-semibold text-white bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
                     {project.period}
                   </span>
                 </div>
-                <div className="flex items-center gap-3.5 mt-4">
-                  <div className="w-11 h-11 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center text-xl backdrop-blur-md flex-shrink-0">
+
+                {/* Título e Empresa Sobrepostos na Base da Foto */}
+                <div className="absolute bottom-4 left-4 right-4 z-10 pointer-events-none flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white text-lg flex-shrink-0">
                     <i className={project.icon} />
                   </div>
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold leading-tight">
+                    <h3 className="text-lg sm:text-xl font-bold text-white leading-snug drop-shadow-sm m-0">
                       {t(project.titleKey)}
                     </h3>
-                    <p className="text-xs sm:text-sm text-white/80 font-medium m-0">
+                    <p className="text-xs text-white/80 font-medium m-0">
                       {t(project.companyKey)}
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Corpo do Card */}
+              {/* Corpo do Card com Descrição e Bullets Técnicos */}
               <div className="p-6 sm:p-7 flex-grow flex flex-col justify-between">
                 <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-6 font-normal">
                   {t(project.descKey)}
