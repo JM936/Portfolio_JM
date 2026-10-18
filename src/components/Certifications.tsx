@@ -32,7 +32,8 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
       dateKey: 'issued_mar' as const,
       descKey: 'metrology_desc' as const,
       skillsKey: 'metrology_skills' as const,
-      imageUrl: '/certificados/imagens/Julio Malo Certificado de Metrologia.png',
+      imageUrl: '/certificados/imagens/metrologia-ipetec.webp',
+      fallbackUrl: '/certificados/imagens/Julio Malo Certificado de Metrologia.png',
     },
     {
       id: 2,
@@ -41,7 +42,8 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
       dateKey: 'issued_aug' as const,
       descKey: 'metrology_basic_desc' as const,
       skillsKey: 'metrology_basic_skills' as const,
-      imageUrl: '/certificados/imagens/metrologia_basica_turma_set2024_certificado.png',
+      imageUrl: '/certificados/imagens/metrologia-basica-enap.webp',
+      fallbackUrl: '/certificados/imagens/metrologia_basica_turma_set2024_certificado.png',
     },
     {
       id: 3,
@@ -50,7 +52,8 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
       dateKey: 'issued_jul' as const,
       descKey: 'soil_mechanics_desc' as const,
       skillsKey: 'soil_mechanics_skills' as const,
-      imageUrl: '/certificados/imagens/certificado Julio -mecanica-dos-solos.png',
+      imageUrl: '/certificados/imagens/mecanica-dos-solos-ginead.webp',
+      fallbackUrl: '/certificados/imagens/certificado Julio -mecanica-dos-solos.png',
     },
     {
       id: 4,
@@ -60,7 +63,8 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
       dateKey: 'issued_aug' as const,
       descKey: 'asphalt_desc' as const,
       skillsKey: 'asphalt_skills' as const,
-      imageUrl: '/certificados/imagens/misturas_asfalticas_conceituacao_materiais_e_dosagem_turma_ago2024_certificado_2.png',
+      imageUrl: '/certificados/imagens/misturas-asfalticas-ginead.webp',
+      fallbackUrl: '/certificados/imagens/misturas_asfalticas_conceituacao_materiais_e_dosagem_turma_ago2024_certificado_2.png',
     },
     {
       id: 5,
@@ -70,7 +74,8 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
       dateKey: 'issued_aug' as const,
       descKey: 'pathologies_desc' as const,
       skillsKey: 'pathologies_skills' as const,
-      imageUrl: '/certificados/imagens/conceitos_essenciais_sobre_patologias_em_estruturas_de_concreto_turma_set2024_certificado.png',
+      imageUrl: '/certificados/imagens/patologias-concreto-ginead.webp',
+      fallbackUrl: '/certificados/imagens/conceitos_essenciais_sobre_patologias_em_estruturas_de_concreto_turma_set2024_certificado.png',
     },
     {
       id: 6,
@@ -79,7 +84,8 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
       dateKey: 'issued_jun' as const,
       descKey: 'construction_material_desc' as const,
       skillsKey: 'construction_material_skills' as const,
-      imageUrl: '/certificados/imagens/certificado Julio materiais-de-construcao.png',
+      imageUrl: '/certificados/imagens/materiais-construcao-ginead.webp',
+      fallbackUrl: '/certificados/imagens/certificado Julio materiais-de-construcao.png',
     },
     {
       id: 7,
@@ -88,7 +94,8 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
       dateKey: 'issued_dez' as const,
       descKey: 'geotechnical_description_desc' as const,
       skillsKey: 'geotechnical_description_skills' as const,
-      imageUrl: '/certificados/imagens/certificado Geotécnia .png',
+      imageUrl: '/certificados/imagens/geotecnia-singeo.webp',
+      fallbackUrl: '/certificados/imagens/certificado Geotécnia .png',
     },
     {
       id: 8,
@@ -97,7 +104,8 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
       dateKey: 'issued_nov' as const,
       descKey: 'mining_borehole_desc' as const,
       skillsKey: 'mining_borehole_skills' as const,
-      imageUrl: '/certificados/imagens/Certificado Julio Maló_descricao de testemunho na mineração, .png',
+      imageUrl: '/certificados/imagens/sondagem-mineracao-singeo.webp',
+      fallbackUrl: '/certificados/imagens/Certificado Julio Maló_descricao de testemunho na mineração, .png',
     },
     {
       id: 9,
@@ -106,7 +114,8 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
       dateString: '7 - 22 Dec 2025 (30 hours)',
       descKey: 'safety_certificate_desc' as const,
       skillsKey: 'safety_certificate_skills' as const,
-      imageUrl: '/certificados/imagens/Seguranca_do_Trabalho_riscos_ambientais_e_prevencão_de_acidentes-Certificado_digital_3436153.png',
+      imageUrl: '/certificados/imagens/seguranca-trabalho-ifrs.webp',
+      fallbackUrl: '/certificados/imagens/Seguranca_do_Trabalho_riscos_ambientais_e_prevencão_de_acidentes-Certificado_digital_3436153.png',
     },
     {
       id: 10,
@@ -115,7 +124,8 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
       dateString: '7 - 22 Dec 2025 (20 hours)',
       descKey: 'concrete_control_certificate_desc' as const,
       skillsKey: 'concrete_control_certificate_skills' as const,
-      imageUrl: '/certificados/imagens/Introducão_ao_Controle_Tecnologico_Aplicado_à_Usinas_de_Concreto-Certificado_digital_3436159.png',
+      imageUrl: '/certificados/imagens/controle-concreto-ifsp.webp',
+      fallbackUrl: '/certificados/imagens/Introducão_ao_Controle_Tecnologico_Aplicado_à_Usinas_de_Concreto-Certificado_digital_3436159.png',
     },
   ];
 
@@ -173,6 +183,12 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
                   src={cert.imageUrl}
                   alt=""
                   loading="lazy"
+                  onError={(e) => {
+                    const img = e.currentTarget;
+                    if (cert.fallbackUrl && img.src !== cert.fallbackUrl) {
+                      img.src = cert.fallbackUrl;
+                    }
+                  }}
                   className="absolute inset-0 w-full h-full opacity-[0.18] blur-[3px] pointer-events-none select-none z-0 object-cover"
                 />
               )}
