@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from '../hooks/useTranslation';
 import type { Language } from '../data/translations';
 import { getWhatsAppPhone } from '../utils/obfuscation';
+import { trackEvent } from '../utils/analytics';
 
 interface WhatsAppButtonProps {
   currentLanguage: Language;
@@ -14,6 +15,10 @@ export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ currentLanguage 
   const phone = getWhatsAppPhone();
   const message = t('whatsapp_message');
   const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+  const handleClick = () => {
+    trackEvent('click_whatsapp', { language: currentLanguage });
+  };
 
   return (
     <div className="fixed bottom-6 right-6 z-40 flex items-center group font-body">
@@ -29,6 +34,7 @@ export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ currentLanguage 
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t('whatsapp_tooltip')}
+        onClick={handleClick}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 260, damping: 20 }}

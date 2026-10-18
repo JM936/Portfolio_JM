@@ -11,6 +11,7 @@ import Certifications from './components/Certifications'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import WhatsAppButton from './components/WhatsAppButton'
+import { trackEvent } from './utils/analytics'
 
 function App() {
   const [language, setLanguage] = useState<Language>(() => {
@@ -35,6 +36,7 @@ function App() {
 
   const handleLanguageChange = (newLang: Language) => {
     setLanguage(newLang);
+    trackEvent('change_language', { language: newLang });
     if (typeof window !== 'undefined') {
       localStorage.setItem('preferred_language', newLang);
       const url = new URL(window.location.href);

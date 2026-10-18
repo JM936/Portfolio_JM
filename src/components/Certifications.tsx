@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from '../hooks/useTranslation';
 import type { Language } from '../data/translations';
+import { trackEvent } from '../utils/analytics';
 
 interface CertificationsProps {
   currentLanguage: Language;
@@ -220,7 +221,14 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
                 {cert.imageUrl && (
                   <div className="mb-6">
                     <button
-                      onClick={() => setSelectedImage(cert.imageUrl)}
+                      onClick={() => {
+                        setSelectedImage(cert.imageUrl);
+                        trackEvent('view_certificate', {
+                          certificate_id: cert.id,
+                          certificate_title: cert.titleKey,
+                          institution: cert.institution,
+                        });
+                      }}
                       className="inline-flex items-center gap-2 text-primary hover:text-accent font-semibold text-sm transition-colors duration-200 bg-transparent border-none cursor-pointer p-0"
                     >
                       <i className="fas fa-eye text-primary text-lg animate-pulse"></i>

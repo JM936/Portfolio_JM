@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import type { Language } from '../data/translations';
 import { getDecodedEmail, getDecodedPhone, getDecodedWhatsApp } from '../utils/obfuscation';
+import { trackEvent } from '../utils/analytics';
 
 interface FooterProps {
   currentLanguage: Language;
@@ -49,6 +50,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLanguage }) => {
                 </div>
                 <a 
                   href={`mailto:${getDecodedEmail()}`} 
+                  onClick={() => trackEvent('contact_click', { contact_type: 'email', location: 'footer' })}
                   className="text-white hover:text-primary transition-colors duration-200 no-underline"
                 >
                   {getDecodedEmail()}
@@ -63,6 +65,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLanguage }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
+                onClick={() => trackEvent('social_click', { platform: 'linkedin', location: 'footer' })}
                 className="w-11 h-11 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-lg text-white transition-all duration-300 hover:bg-primary hover:-translate-y-1 hover:shadow-lg no-underline"
               >
                 <i className="fab fa-linkedin-in" />
@@ -72,6 +75,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLanguage }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
+                onClick={() => trackEvent('click_whatsapp', { location: 'footer' })}
                 className="w-11 h-11 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-lg text-white transition-all duration-300 hover:bg-emerald-600 hover:-translate-y-1 hover:shadow-lg no-underline"
               >
                 <i className="fab fa-whatsapp" />

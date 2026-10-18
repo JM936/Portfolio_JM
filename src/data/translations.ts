@@ -136,7 +136,8 @@ export const translations = {
     all_rights_reserved: "Todos os direitos reservados.",
     // WhatsApp Flutuante
     whatsapp_tooltip: "Fale no WhatsApp",
-    whatsapp_message: "Olá Júlio, vi seu portfólio e gostaria de conversar sobre oportunidades em geotecnia e controle de qualidade."
+    whatsapp_message: "Olá Júlio, vi seu portfólio e gostaria de conversar sobre oportunidades em geotecnia e controle de qualidade.",
+    copied: "Copiado!"
   },
   en: {
     // Header
@@ -274,7 +275,8 @@ export const translations = {
     all_rights_reserved: "All rights reserved.",
     // Floating WhatsApp
     whatsapp_tooltip: "Chat on WhatsApp",
-    whatsapp_message: "Hello Júlio, I saw your portfolio and would like to discuss opportunities in QA/QC and geotechnics."
+    whatsapp_message: "Hello Júlio, I saw your portfolio and would like to discuss opportunities in QA/QC and geotechnics.",
+    copied: "Copied!"
   },
   fr: {
     // Header
@@ -412,7 +414,8 @@ export const translations = {
     all_rights_reserved: "Tous droits réservés.",
     // WhatsApp Flottant
     whatsapp_tooltip: "Discuter sur WhatsApp",
-    whatsapp_message: "Bonjour Júlio, j'ai vu votre portfolio et j'aimerais échanger sur des opportunités en contrôle qualité et géotechnique."
+    whatsapp_message: "Bonjour Júlio, j'ai vu votre portfolio et j'aimerais échanger sur des opportunités en contrôle qualité et géotechnique.",
+    copied: "Copié !"
   }
 } as const;
 

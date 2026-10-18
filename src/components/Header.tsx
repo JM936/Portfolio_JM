@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import type { Language } from '../data/translations';
 import { getDecodedEmail, getDecodedPhone } from '../utils/obfuscation';
+import { trackEvent } from '../utils/analytics';
 
 interface HeaderProps {
   currentLanguage: Language;
@@ -9,6 +10,18 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ currentLanguage }) => {
   const { t } = useTranslation(currentLanguage);
+  const [copiedItem, setCopiedItem] = useState<'email' | 'phone' | null>(null);
+
+  const copyContact = (text: string, type: 'email' | 'phone') => {
+    if (navigator?.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).catch(() => {});
+    }
+    setCopiedItem(type);
+    trackEvent('contact_copy', { contact_type: type });
+    setTimeout(() => {
+      setCopiedItem(null);
+    }, 2200);
+  };
 
   return (
     <header className="relative bg-gradient-to-br from-[#00438a] via-primary to-[#1a2b49] text-white pt-12 pb-16 px-4 overflow-hidden rounded-b-[40px] md:rounded-b-[56px] shadow-lg mb-8">
@@ -61,20 +74,43 @@ export const Header: React.FC<HeaderProps> = ({ currentLanguage }) => {
             <span className="font-medium">Luanda, Angola</span>
           </div>
 
-          <div className="flex items-center gap-2.5 text-sm sm:text-base bg-white/10 hover:bg-white/20 border border-white/15 py-2.5 px-5 rounded-full backdrop-blur-md shadow-sm transition-all duration-300 hover:-translate-y-0.5">
-            <i className="fas fa-envelope text-sky-300" />
+          <div className="relative flex items-center gap-2.5 text-sm sm:text-base bg-white/10 hover:bg-white/20 border border-white/15 py-2.5 px-5 rounded-full backdrop-blur-md shadow-sm transition-all duration-300 hover:-translate-y-0.5">
+            <i className={`fas ${copiedItem === 'email' ? 'fa-check text-emerald-300' : 'fa-envelope text-sky-300'} transition-all`} />
             <a 
               href={`mailto:${getDecodedEmail()}`} 
+              onClick={() => {
+                copyContact(getDecodedEmail(), 'email');
+                trackEvent('contact_click', { contact_type: 'email' });
+              }}
               className="text-white no-underline font-medium hover:underline focus-visible:ring-1 focus-visible:ring-white rounded"
+              title={t('copied')}
             >
               {getDecodedEmail()}
             </a>
+            {copiedItem === 'email' && (
+              <span className="absolute -top-7 left-1/2 -translate-x-1/2 px-2.5 py-0.5 bg-slate-900/95 text-emerald-400 text-xs rounded-full font-bold shadow-lg border border-white/20 whitespace-nowrap">
+                {t('copied')}
+              </span>
+            )}
           </div>
 
-          <div className="flex items-center gap-2.5 text-sm sm:text-base bg-white/10 hover:bg-white/20 border border-white/15 py-2.5 px-5 rounded-full backdrop-blur-md shadow-sm transition-all duration-300 hover:-translate-y-0.5">
-            <i className="fas fa-phone text-emerald-300" />
+          <button
+            type="button"
+            onClick={() => {
+              copyContact(getDecodedPhone(), 'phone');
+              trackEvent('contact_click', { contact_type: 'phone' });
+            }}
+            className="relative flex items-center gap-2.5 text-sm sm:text-base bg-white/10 hover:bg-white/20 border border-white/15 py-2.5 px-5 rounded-full backdrop-blur-md shadow-sm transition-all duration-300 hover:-translate-y-0.5 cursor-pointer text-white"
+            title={t('copied')}
+          >
+            <i className={`fas ${copiedItem === 'phone' ? 'fa-check text-emerald-300' : 'fa-phone text-emerald-300'} transition-all`} />
             <span className="font-medium">{getDecodedPhone()}</span>
-          </div>
+            {copiedItem === 'phone' && (
+              <span className="absolute -top-7 left-1/2 -translate-x-1/2 px-2.5 py-0.5 bg-slate-900/95 text-emerald-400 text-xs rounded-full font-bold shadow-lg border border-white/20 whitespace-nowrap">
+                {t('copied')}
+              </span>
+            )}
+          </button>
         </div>
       </div>
     </header>
