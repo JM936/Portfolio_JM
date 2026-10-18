@@ -270,19 +270,10 @@ export const Certifications: React.FC<CertificationsProps> = ({ currentLanguage 
               onClick={(e) => e.stopPropagation()} // Impede o fechamento ao clicar na imagem
               className="relative max-w-[90%] max-h-[85vh] rounded-lg shadow-2xl overflow-hidden border border-white/10"
             >
-              {/* Máscara invisível transparente por cima para evitar clique direito e salvar */}
-              <div 
-                className="absolute inset-0 z-10 w-full h-full bg-transparent select-none pointer-events-auto"
-                onContextMenu={(e) => e.preventDefault()}
-                onDragStart={(e) => e.preventDefault()}
-              />
-              
               <img
                 src={selectedImage}
                 alt="Certificado"
-                className="max-w-full max-h-[85vh] object-contain block rounded-lg select-none pointer-events-none"
-                onContextMenu={(e) => e.preventDefault()}
-                onDragStart={(e) => e.preventDefault()}
+                className="max-w-full max-h-[85vh] object-contain block rounded-lg select-none"
               />
             </motion.div>
           </motion.div>

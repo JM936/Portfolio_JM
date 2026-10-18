@@ -8,4 +8,9 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://choices.consentframework.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://choices.consentframework.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://raw.githubusercontent.com https://www.google-analytics.com https://www.googletagmanager.com https://choices.consentframework.com https://*.consentframework.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.googletagmanager.com https://choices.consentframework.com https://*.consentframework.com; frame-src 'self' https://choices.consentframework.com https://*.consentframework.com;"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Resource-Policy = "same-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://app.secureprivacy.ai https://*.secureprivacy.ai; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://app.secureprivacy.ai https://*.secureprivacy.ai; font-src 'self' https://fonts.gstatic.com https://app.secureprivacy.ai https://*.secureprivacy.ai; img-src 'self' data: https://raw.githubusercontent.com https://www.google-analytics.com https://www.googletagmanager.com https://app.secureprivacy.ai https://*.secureprivacy.ai; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.googletagmanager.com https://app.secureprivacy.ai https://*.secureprivacy.ai; frame-src 'self' https://app.secureprivacy.ai https://*.secureprivacy.ai; base-uri 'self'; object-src 'none';"
+

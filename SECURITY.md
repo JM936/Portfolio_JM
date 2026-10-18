@@ -2,20 +2,18 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+Only the active production version of this portfolio repository receives security updates and hardening patches:
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| Main (Production) | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you discover a potential security vulnerability or misconfiguration within this portfolio:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+1. **Do not create public issues** containing sensitive vulnerability details or exploit proofs.
+2. Send an email with a technical summary, reproduction steps, and impact assessment directly to:
+   - **Email:** `juliomalo811@outlook.com`
+3. We take all responsible disclosures seriously and will review and respond promptly.
+

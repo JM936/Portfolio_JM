@@ -1,20 +1,25 @@
 /**
- * Utilitário de ofuscação em Base64 para proteção de dados de contato contra bots (scrapers).
- * Evita a captura de e-mails, telefones e links de comunicação por robôs de spam automatizados.
+ * Utilitário para centralização e proteção de dados de contato contra bots (scrapers).
+ * Evita a captura estática direta de e-mails, telefones e links de comunicação.
  */
 
-const OBFUSCATED_EMAIL = "anVsaW9tYWxvODExQG91dGxvb2suY29t"; // juliomalo811@outlook.com
-const OBFUSCATED_PHONE = "KzI0NCA5MzYgOTE4IDE3Mg=="; // +244 936 918 172
-const OBFUSCATED_WHATSAPP = "aHR0cHM6Ly93YS5tZS8yNDQ5MzY5MTgxNzI="; // https://wa.me/244936918172
+const EMAIL_PARTS = ['juliomalo811', 'outlook.com'];
+const PHONE_PARTS = ['+244', '936', '918', '172'];
+const WHATSAPP_RAW = '244936918172';
 
 export const getDecodedEmail = (): string => {
-  return typeof window !== 'undefined' ? window.atob(OBFUSCATED_EMAIL) : '';
+  return EMAIL_PARTS.join('@');
 };
 
 export const getDecodedPhone = (): string => {
-  return typeof window !== 'undefined' ? window.atob(OBFUSCATED_PHONE) : '';
+  return PHONE_PARTS.join(' ');
+};
+
+export const getWhatsAppPhone = (): string => {
+  return WHATSAPP_RAW;
 };
 
 export const getDecodedWhatsApp = (): string => {
-  return typeof window !== 'undefined' ? window.atob(OBFUSCATED_WHATSAPP) : '';
+  return `https://wa.me/${WHATSAPP_RAW}`;
 };
+

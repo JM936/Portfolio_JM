@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../hooks/useTranslation';
 import type { Language } from '../data/translations';
+import { getWhatsAppPhone } from '../utils/obfuscation';
 
 interface WhatsAppButtonProps {
   currentLanguage: Language;
@@ -10,8 +11,7 @@ interface WhatsAppButtonProps {
 export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ currentLanguage }) => {
   const { t } = useTranslation(currentLanguage);
 
-  // Número oficial de WhatsApp do Júlio Maló (+244 936 918 172)
-  const phone = '244936918172';
+  const phone = getWhatsAppPhone();
   const message = t('whatsapp_message');
   const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
