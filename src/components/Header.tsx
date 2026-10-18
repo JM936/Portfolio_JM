@@ -38,7 +38,7 @@ export const Header: React.FC<HeaderProps> = ({ currentLanguage }) => {
               loading="eager"
               fetchPriority="high"
               decoding="async"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = '/Imagens/Profile.jpg';
               }}
