@@ -28,12 +28,13 @@ export const ScrollToTop: React.FC = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          initial={{ opacity: 0, scale: 0.5, y: 20 }}
+          initial={{ opacity: 0, scale: 0.5, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.5, y: 20 }}
+          exit={{ opacity: 0, scale: 0.5, y: 15 }}
           onClick={scrollToTop}
-          className="fixed bottom-[30px] right-[30px] z-[99] border-none outline-none bg-primary text-white cursor-pointer p-4 rounded-full shadow-md text-xl transition-all hover:bg-accent hover:-translate-y-1 hover:scale-110 hover:shadow-lg flex items-center justify-center w-12 h-12"
-          title="Go to top"
+          className="fixed bottom-[84px] right-6 sm:bottom-[90px] sm:right-6 z-40 border border-white/10 outline-none bg-slate-800/90 backdrop-blur-md text-white cursor-pointer rounded-full shadow-lg text-base transition-all hover:bg-primary hover:-translate-y-1 hover:scale-105 hover:shadow-xl flex items-center justify-center w-11 h-11 focus-visible:ring-2 focus-visible:ring-primary"
+          title="Voltar ao topo"
+          aria-label="Voltar ao topo"
         >
           <i className="fas fa-arrow-up" />
         </motion.button>

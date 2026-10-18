@@ -10,6 +10,7 @@ import Skills from './components/Skills'
 import Certifications from './components/Certifications'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import WhatsAppButton from './components/WhatsAppButton'
 
 function App() {
   const [language, setLanguage] = useState<Language>('en')
@@ -35,6 +36,7 @@ function App() {
 
       <Footer currentLanguage={language} />
       <ScrollToTop />
+      <WhatsAppButton currentLanguage={language} />
     </div>
   )
 }
