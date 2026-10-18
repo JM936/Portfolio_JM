@@ -33,7 +33,11 @@ export const Header: React.FC<HeaderProps> = ({ currentLanguage }) => {
             <img
               src="/Imagens/Profile.webp"
               alt="Foto de perfil de Júlio Maló"
-              loading="lazy"
+              width={190}
+              height={190}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               className="w-full h-full object-cover"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = '/Imagens/Profile.jpg';

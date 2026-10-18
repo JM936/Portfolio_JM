@@ -13,16 +13,39 @@ import ScrollToTop from './components/ScrollToTop'
 import WhatsAppButton from './components/WhatsAppButton'
 
 function App() {
-  const [language, setLanguage] = useState<Language>('en')
+  const [language, setLanguage] = useState<Language>(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get('lang');
+      if (urlLang === 'pt' || urlLang === 'en' || urlLang === 'fr') {
+        return urlLang;
+      }
+      const saved = localStorage.getItem('preferred_language');
+      if (saved === 'pt' || saved === 'en' || saved === 'fr') {
+        return saved;
+      }
+    }
+    return 'en';
+  });
 
   useEffect(() => {
-    // Sincroniza a tag html lang com o idioma corrente para fins de acessibilidade
-    document.documentElement.lang = language
-  }, [language])
+    // Sincroniza a tag html lang com o idioma corrente para fins de acessibilidade e SEO
+    document.documentElement.lang = language;
+  }, [language]);
+
+  const handleLanguageChange = (newLang: Language) => {
+    setLanguage(newLang);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('preferred_language', newLang);
+      const url = new URL(window.location.href);
+      url.searchParams.set('lang', newLang);
+      window.history.replaceState({}, '', url.toString());
+    }
+  };
 
   return (
     <div className="min-h-screen bg-light flex flex-col font-body antialiased">
-      <LanguageSelector currentLanguage={language} onLanguageChange={setLanguage} />
+      <LanguageSelector currentLanguage={language} onLanguageChange={handleLanguageChange} />
       <Header currentLanguage={language} />
       <Navbar currentLanguage={language} />
       
